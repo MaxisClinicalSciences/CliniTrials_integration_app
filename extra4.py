@@ -96,7 +96,7 @@ def fetch_data_for_condition(base_url, condition):
 
 # Function to apply custom styles to the DataFrame
 def style_dataframe(df):
-numeric_cols = df.select_dtypes(include=['float', 'int']).columns.tolist()
+    numeric_cols = df.select_dtypes(include=['float', 'int']).columns.tolist()
 
     styled_df = df.style \
         .set_table_styles([{
