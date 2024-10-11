@@ -105,7 +105,7 @@ def style_dataframe(df):
         }]) \
         .set_properties(**{'border-color': '#007acc', 'color': 'black', 'background-color': '#f9f9f9'}) \
         .highlight_null()  # Removed 'null_color' argument
-        .set_precision(2)
+        .format(precision=2)
 
     if numeric_cols:
         styled_df = styled_df.background_gradient(subset=numeric_cols, cmap='coolwarm')
