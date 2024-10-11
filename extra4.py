@@ -110,10 +110,10 @@ def style_dataframe(df):
         .apply(highlight_null, axis=1) \
         .format(precision=2)
 
-    if numeric_cols:
+  if numeric_cols:
         styled_df = styled_df.background_gradient(subset=numeric_cols, cmap='coolwarm')
 
-    return styled_df
+  return styled_df
 # Check if user is logged in
 check_login()
 
