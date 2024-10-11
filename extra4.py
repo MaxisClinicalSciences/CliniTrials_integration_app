@@ -96,7 +96,9 @@ def fetch_data_for_condition(base_url, condition):
 
 # Function to apply custom styles to the DataFrame
 def style_dataframe(df):
-   def highlight_null(s):
+  numeric_cols = df.select_dtypes(include=['float', 'int']).columns.tolist()
+
+    def highlight_null(s):
         return ['background-color: #f2f2f2' if pd.isnull(v) else '' for v in s]
 
     # Base styling for the dataframe
@@ -109,6 +111,10 @@ def style_dataframe(df):
         .apply(highlight_null, axis=1) \
         .format(precision=2)
 
+    if numeric_cols:
+        styled_df = styled_df.background_gradient(subset=numeric_cols, cmap='coolwarm')
+
+    return styled_df
 # Check if user is logged in
 check_login()
 
