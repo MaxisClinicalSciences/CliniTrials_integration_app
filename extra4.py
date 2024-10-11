@@ -103,9 +103,13 @@ def style_dataframe(df):
             'selector': 'thead th',
             'props': [('background-color', '#007acc'), ('color', 'white')]
         }]) \
-        .set_properties(**{'border-color': '#007acc', 'color': 'black', 'background-color': '#f9f9f9'}) \
-        .highlight_null()  # Removed 'null_color' argument
-        .format(precision=2)
+        .set_properties(**{
+            'border-color': '#007acc',
+            'color': 'black',
+            'background-color': '#f9f9f9'
+        }) \
+        .highlight_null()  # Removed 'null_color' argument for compatibility
+        .format(precision=2)  # This should be properly indented and aligned
 
     if numeric_cols:
         styled_df = styled_df.background_gradient(subset=numeric_cols, cmap='coolwarm')
