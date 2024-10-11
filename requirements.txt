@@ -1,0 +1,10 @@
+streamlit>=1.26.0
+pandas>=2.1.1
+streamlit-authenticator>=0.2.3
+requests>=2.31.0
+langchain>=0.0.325
+huggingface-hub>=0.17.3
+werkzeug>=3.0.1
+urllib3>=2.0.6
+pymysql>=1.1.0
+langchain_community>=0.0.7
