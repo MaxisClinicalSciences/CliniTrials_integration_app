@@ -1,5 +1,5 @@
 streamlit>=1.26.0
-pandas>=2.1.1
+pandas>=2.2.3
 streamlit-authenticator>=0.2.3
 requests>=2.31.0
 langchain>=0.0.325
