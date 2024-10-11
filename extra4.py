@@ -97,12 +97,11 @@ def fetch_data_for_condition(base_url, condition):
 # Function to apply custom styles to the DataFrame
 def style_dataframe(df):
   numeric_cols = df.select_dtypes(include=['float', 'int']).columns.tolist()
+  def highlight_null(s):
+      return ['background-color: #f2f2f2' if pd.isnull(v) else '' for v in s]
 
-    def highlight_null(s):
-        return ['background-color: #f2f2f2' if pd.isnull(v) else '' for v in s]
-
-    # Base styling for the dataframe
-    styled_df = df.style \
+  # Base styling for the dataframe
+  styled_df = df.style \
         .set_table_styles([{
             'selector': 'thead th',
             'props': [('background-color', '#007acc'), ('color', 'white')]
