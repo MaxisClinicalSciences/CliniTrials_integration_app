@@ -96,17 +96,18 @@ def fetch_data_for_condition(base_url, condition):
 
 # Function to apply custom styles to the DataFrame
 def style_dataframe(df):
-    return df.style.set_properties(
-        **{
-            'background-color': '#f9f9f9',
-            'color': 'black',
-            'border-color': '#007acc'
-        }
-    ).highlight_null(
-        null_color='#f2f2f2'
-    ).set_table_styles(
-        [{'selector': 'thead th', 'props': [('background-color', '#007acc'), ('color', 'white')]}]
-    ).set_precision(2)
+   def highlight_null(s):
+        return ['background-color: #f2f2f2' if pd.isnull(v) else '' for v in s]
+
+    # Base styling for the dataframe
+    styled_df = df.style \
+        .set_table_styles([{
+            'selector': 'thead th',
+            'props': [('background-color', '#007acc'), ('color', 'white')]
+        }]) \
+        .set_properties(**{'border-color': '#007acc', 'color': 'black', 'background-color': '#f9f9f9'}) \
+        .apply(highlight_null, axis=1) \
+        .format(precision=2)
 
 # Check if user is logged in
 check_login()
