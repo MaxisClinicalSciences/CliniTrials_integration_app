@@ -103,7 +103,6 @@ def style_dataframe(df):
             'border-color': '#007acc'
         }
     ).highlight_null(
-        null_color='#f2f2f2'
     ).set_table_styles(
         [{'selector': 'thead th', 'props': [('background-color', '#007acc'), ('color', 'white')]}]
     ).set_precision(2)
