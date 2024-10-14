@@ -95,26 +95,26 @@ def fetch_data_for_condition(base_url, condition):
     return data_list
 
 # Function to apply custom styles to the DataFrame
-def style_dataframe(df):
-    numeric_cols = df.select_dtypes(include=['float', 'int']).columns.tolist()
+# def style_dataframe(df):
+#     numeric_cols = df.select_dtypes(include=['float', 'int']).columns.tolist()
 
-    styled_df = df.style \
-        .set_table_styles([{
-            'selector': 'thead th',
-            'props': [('background-color', '#007acc'), ('color', 'white')]
-        }]) \
-        .set_properties(**{
-            'border-color': '#007acc',
-            'color': 'black',
-            'background-color': '#f9f9f9'
-        }) \
-        .highlight_null()  # Removed 'null_color' argument for compatibility
-        .format(precision=2)  # This should be properly indented and aligned
+#     styled_df = df.style \
+#         .set_table_styles([{
+#             'selector': 'thead th',
+#             'props': [('background-color', '#007acc'), ('color', 'white')]
+#         }]) \
+#         .set_properties(**{
+#             'border-color': '#007acc',
+#             'color': 'black',
+#             'background-color': '#f9f9f9'
+#         }) \
+#         .highlight_null()  # Removed 'null_color' argument for compatibility
+#         .format(precision=2)  # This should be properly indented and aligned
 
-    if numeric_cols:
-        styled_df = styled_df.background_gradient(subset=numeric_cols, cmap='coolwarm')
+#     if numeric_cols:
+#         styled_df = styled_df.background_gradient(subset=numeric_cols, cmap='coolwarm')
 
-    return styled_df
+#     return styled_df
 
 # Check if user is logged in
 check_login()
@@ -211,22 +211,22 @@ def set_background():
 set_background()
 
 # Styling for DataFrame
-def style_dataframe(df):
-    numeric_cols = df.select_dtypes(include=['float', 'int']).columns.tolist()
+# def style_dataframe(df):
+#     numeric_cols = df.select_dtypes(include=['float', 'int']).columns.tolist()
 
-    styled_df = df.style \
-        .set_table_styles([{
-            'selector': 'thead th',
-            'props': [('background-color', '#007acc'), ('color', 'white')]
-        }]) \
-        .set_properties(**{'border-color': '#007acc', 'color': 'black', 'background-color': '#f9f9f9'}) \
-        .highlight_null(null_color='#f2f2f2') \
-        .set_precision(2)
+#     styled_df = df.style \
+#         .set_table_styles([{
+#             'selector': 'thead th',
+#             'props': [('background-color', '#007acc'), ('color', 'white')]
+#         }]) \
+#         .set_properties(**{'border-color': '#007acc', 'color': 'black', 'background-color': '#f9f9f9'}) \
+#         .highlight_null(null_color='#f2f2f2') \
+#         .set_precision(2)
 
-    if numeric_cols:
-        styled_df = styled_df.background_gradient(subset=numeric_cols, cmap='coolwarm')
+#     if numeric_cols:
+#         styled_df = styled_df.background_gradient(subset=numeric_cols, cmap='coolwarm')
 
-    return styled_df
+#     return styled_df
 
 # Application Title
 st.title("ClinicalTrials.gov Integration")
@@ -267,7 +267,7 @@ if "data_fetched" in st.session_state and st.session_state.data_fetched:
     df = st.session_state.df
 
     st.write("### Fetched Data")
-    styled_df = style_dataframe(df)
+    styled_df = df
     st.dataframe(styled_df, use_container_width=True)
    
 
