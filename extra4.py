@@ -156,7 +156,7 @@ def update_ui_based_on_filter(df):
     else:
         filtered_df = df
 
-    styled_filtered_df = style_dataframe(filtered_df)
+    styled_filtered_df = filtered_df
     st.write(f"### Rows containing '{study_filter}' studies")
     if not filtered_df.empty:
         st.dataframe(styled_filtered_df, use_container_width=True)
